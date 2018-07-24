@@ -8,7 +8,7 @@ class lib_string: public lib_object
 {
 	std::string value;
 	
-	public:
+public:
 	lib_string(std::string value);
 	std::string to_string() const;
 };
