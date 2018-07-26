@@ -26,6 +26,8 @@ public:
 	virtual void show_job() const= 0;//metodo abstracto
 
 	virtual ~Employee(){}
+	//no hay destructores virtaules puros
+	//virtual ~Employee(){} = 0;
 };
 
 class Jamitor : public Employee
@@ -70,6 +72,8 @@ int main(int argc, char const *argv[])
 	Boss s{"Juan Perez"};
 	s.show_job();
 
+	Jamitor e{"name"};
+	print(e);
 	print(s);
 
 	return 0;
