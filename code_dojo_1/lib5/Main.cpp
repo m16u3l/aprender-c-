@@ -1,12 +1,36 @@
 #include <iostream>
 #include "lib_object.h"
 #include "lib_array_list.h"
+#include "lib_stack.h"
 #include "lib_integer.h"
 #include "lib_string.h"
 #include "lib_rawstring.h"
 #include "lib_double.h"
 
 using namespace std;
+
+void test2()
+{
+	lib_stack stk;
+	
+	stk.push(new lib_string("Hello"));
+	stk.push(new lib_string("world"));
+	stk.push(new lib_string("today"));
+	stk.push(new lib_string("is"));
+	stk.push(new lib_string("August"));
+	stk.push(new lib_integer(31));
+	
+	lib_objectcontainer obj = stk.pop();
+	
+	cout << obj.get().to_string() << "\n";
+	stk.push(new lib_integer(27));
+	
+	while (!stk.is_empty())
+	{
+		lib_objectcontainer obj = stk.pop();
+		cout << obj.get().to_string() << "\n";
+	}
+}
 
 void test()
 {
@@ -89,11 +113,14 @@ int main()
 	return 0;
 	*/
 	
-	for (int i = 0; i < 10000000; i++)
+	/*for (int i = 0; i < 1000000000; i++)
 	{
-		if (i % 100000 == 0)
+		if (i % 10000000 == 0)
 			cout << i << "\n";
 		
-		test();
-	}
+		test2();
+	}*/
+	
+	test2();
+	return 0;
 }
