@@ -18,15 +18,15 @@ struct wint //wraper int
 };
 int main(int argc, char const *argv[])
 {
-  int* s = nullptr;
-  try
-  {
-    wint s{new int{10}};  //s es una variable de stack
-    throw 2;
-  }
-  catch(...)
-  {
-    cerr << "Leak: " << endl;
-  }
-  return 0;
+    int* s = nullptr;
+    try
+    {
+        wint s{new int{10}};  //s es una variable de stack
+      throw 2;
+    }
+    catch(...)
+    {
+        cerr << "Leak: " << endl;
+    }
+    return 0;
 }
