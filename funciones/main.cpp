@@ -5,28 +5,26 @@
 using namespace std;
 
 int main(){
-	cout<<"Ingrese un numero: ";
-	double n;
-	cin>>n;
-	bool x = isEven(n);
-	bool y = isPrime(n);
-	long long z = myround(n);
+    cout<<"Ingrese un numero: ";
+    double n;
+    cin>>n;
+    bool x = isEven(n);
+    bool y = isPrime(n);
+    long long z = myround(n);
 
-	int r = factorial(n);
+    int r = factorial(n);
 
-	cout<<"Es: "<<z<<"\n";
-
-
+    cout<<"Es: "<<z<<"\n";
 }
 /*
 int factorial(int n){
-	int res=n;
-	if(n<=1){
-		return res;
-	}
-	else{
-		return res*factorial(n-1);
-	}
+    int res=n;
+    if(n<=1){
+        return res;
+    }
+    else{
+        return res*factorial(n-1);
+    }
 }
 */
 /*

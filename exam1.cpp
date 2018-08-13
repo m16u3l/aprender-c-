@@ -132,7 +132,7 @@ public:
 };
 
 class memory_db
-{    
+{
      size_t len;
      size_t sizememory;
      table** tables;

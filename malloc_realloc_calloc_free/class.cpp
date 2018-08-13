@@ -4,12 +4,12 @@ using namespace std;
 
 void b()
 {
-	cout<<"HI"<<endl;
+    cout<<"HI"<<endl;
 }
 
 void c()
 {
-	cout<<"BYE"<<endl;
+    cout<<"BYE"<<endl;
 }
 
 void d()
@@ -20,13 +20,12 @@ void d()
 
 void a(void (*p)(), void (*q)())
 {
-	p();
-	q();
+    p();
+    q();
 }
 
 int main(int argc, char const *argv[])
 {
-
-	a(b, c);
-	return 0;
+    a(b, c);
+    return 0;
 }

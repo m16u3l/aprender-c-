@@ -5,41 +5,41 @@ using namespace std;
 class M
 {
 public:
-	void p()
-	{
-		puts("M");
-	}
+    void p()
+    {
+    puts("M");
+    }
 };
 
 class N
 {
 public:
-	void p()
-	{
-		puts("N");
-	}
+    void p()
+    {
+    puts("N");
+    }
 };
 
 class MN: public M, public N
 {
 public:
-	/*
-	void p()
-	{
-		puts("MN");	//hiding (ocultar)
-	}
-	*/
+    /*
+    void p()
+    {
+        puts("MN");	//hiding (ocultar)
+    }
+    */
 };
-3abcdeiprxint main(int argc, char const *argv[])
+int main(int argc, char const *argv[])
 {
-	M m;
-	m.p();
+    M m;
+    m.p();
 
-	N n;
-	n.p();
+    N n;
+    n.p();
 
-	MN mn;
-	//mn.p();
-	mn.M::p();
-	mn.N::p();
+    MN mn;
+    //mn.p();
+    mn.M::p();
+    mn.N::p();
 }

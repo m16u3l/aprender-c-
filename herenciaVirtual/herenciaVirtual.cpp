@@ -5,50 +5,49 @@ using namespace std;
 
 class A
 {
-	int n;
+    int n;
 public:
-	A(int n)
-	:n{n}
-	{
-		cout << "A: " << n << "\n";
-	}
+    A(int n)
+    :n{n}
+    {
+        cout << "A: " << n << "\n";
+    }
 
-	virtual ~A()
-	{}
+    virtual ~A()
+    {}
 };
 
 class X: public virtual A
 {
 public:
-	X()
-	:A(843)
-	{}
+    X()
+    :A(843)
+    {}
 };
 
 class B: public virtual A
 {
-	string s;
+    string s;
 public:
-	B(const string& s)
-	:A{321}, s{s}
-	{
-		cout << "B\n";
-	}
+    B(const string& s)
+    :A{321}, s{s}
+    {
+        cout << "B\n";
+    }
 };
 
 class C: public virtual X, public virtual B
 {
 public:
-	C()
-	:A(400), X(), B{"hola"}
-	{
+    C()
+    :A(400), X(), B{"hola"}
+    {
 
-	}
+    }
 };
 
 int main(int argc, char const *argv[])
 {
-	A* a = new C();
-
-	delete a;	
+    A* a = new C();
+    delete a;
 }

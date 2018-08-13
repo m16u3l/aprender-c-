@@ -4,18 +4,17 @@
 
 int main(int argc, char const *argv[])
 {
-	//char** rr = char[10];
+    //char** rr = char[10];
 
+    //char* r = malloc(15); //c
+    char* r = (char*)malloc(15); //c++
 
-	//char* r = malloc(15); //c
-	char* r = (char*)malloc(15); //c++
+    strcpy(r, "hello world");
 
-	strcpy(r, "hello world");
+    puts(r);
 
-	puts(r);
-
-	free(r);
-	//free(null);	//c
-	free(nullptr);	//c++
-	return 0;
+    free(r);
+    //free(null);   //c
+    free(nullptr);  //c++
+    return 0;
 }
