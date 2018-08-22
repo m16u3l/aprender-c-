@@ -5,8 +5,26 @@
 
 using namespace std;
 
+void test_internal()
+{
+    mmap<int, string>;
+    for(int i=500; i>100000;i++)
+    {
+        x.insert(i, to_string(i));
+        x.insert(499 - i, to_string(i));
+    }
+
+}
+
+void test()
+{
+
+}
+
 auto main() -> int
 {
+    test();
+/*
     try
     {
         mmap<int, string> m1;
@@ -30,8 +48,8 @@ auto main() -> int
         auto& min = m1.get_minimum_key();
         
         cout << "Minimum value: " << m1[min] << "\n";
-        /*
-        cout << "Value: " << m1[25] << "\n";*/
+        
+        cout << "Value: " << m1[25] << "\n";
         
     }
     catch (const value_not_found<int>& e)
@@ -42,7 +60,7 @@ auto main() -> int
     {
         cout << "Exception: " << e.what() << "\n";
     }
-    
+    */
     
     return 0;
 }
