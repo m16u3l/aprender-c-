@@ -2,37 +2,37 @@
 
 using namespace std;
 
-
-string join(const string& , const string& cad)
+string internal_join(const string& w, const string& sep, const string& b)
 {
-    return cad;
-}
-
-void internal_join(const string& aux, const string& b)
-{
-    aux + b;
-}
-
-template<typename...ARGS>
-void internal_join(const string& aux, const string sep, const ARGS&...args)
-{
-    aux + sep + internal_join(args...); 
-}
-
-template<typename...ARGS>
-string join(const string& sep, 
-            const string& w,
-            const ARGS&...args)
-{
+    cout << "X" << b << endl;
     string aux;
-    internal_join(aux, sep, args...);
+    aux = b;
+    return aux;
+}
+
+template<typename...ARGS>
+string internal_join(const string& w, const string& sep, const ARGS&...args)
+{
+    cout << "IJ: " << " " << w << " " << sep << " " << "" << endl;
+    string aux;
+    aux = w + internal_join(args...);
+    return aux;
+}
+
+template<typename...ARGS>
+string join(const string& sep, const string& w, const ARGS&...args)
+{
+    string aux = "";
+    cout << w << " " << sep << endl;
+    aux = w + sep;
+    aux = aux + internal_join(args...);
     return aux;
 }
 
 int main()
 {
     string p = join(",", "Juan", "Pedro", "Jose", "Maria");
-    cout << p << endl;
+    cout << "P: " << p << endl;
 
     return 0;
 }
