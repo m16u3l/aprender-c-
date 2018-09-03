@@ -42,14 +42,33 @@ public:
         cap = ncap;
     }
 
+    template<typename...ARGS>
+    void emplace_back(const ARGS&&...args)
+    {
+        resize();
+        //parameter pack expansion
+        //fordward(),fordward(),fordward()
+        items[count++] = T{forward<ARGS>(args)...};
+    }
+
+    /*
     template<class  U>
     void emplace_back(U&& x)
     {
         resize();
         items[count++] = T{forward<U>(x)};
     }
+    */
 
-    
+    T& operator[](size_t index)
+    {
+        return items[index];
+    }
+
+    const T& operator[](size_t index) const
+    {
+        return items[index];
+    }
 
 private:
     //array_list_iterator
@@ -100,41 +119,44 @@ public:
         return iterator{items+count};
     }
 
+//  using type = T;
+    using type = T;
 };
 
+struct Point
+{
+    int x, y;
+};
 
+template<typename T>
+void info(const T& x)
+{
+    typename T::type aux;
+    cout << "type: " << aux << endl;
+}
 
 int main(int argc, char const *argv[])
 {
-    array_list<string> p;
-    p.push_back("hola");
-    p.push_back("mundo");
-    p.push_back("today");
-    p.push_back("diez");
+    array_list<Point> pts;
 
-    //debemos implementar los operadores
-    //==    ++i     i++     !=      
+    pts.push_back(Point{6, 8});
+    pts.push_back(Point{12, 2});
+    pts.push_back(Point{10, 2});
 
-    for (auto& i : p)
-    {
-        cout << i << endl;
-    }
-
-    for (auto i = p.begin(); i != p.end(); ++i)
-    {
-        cout << *i << endl;
-    }
-
-    //
-    //s.emplace_back("Septiembre");
-
-    //cout << s[2] << "\n";
-
-
+    //pts.emplace_back(125, 180);
 /*
-    //copia
-    string p = "agosto";
-    s.push_back(p);
+    for (auto& p:pts)
+    {
+        cout << p.x << ";" << p.y << endl;
+    }
 */
+    //info(pts);
+
+    array_list<string> q;
+    info(q);
+
+    array_list<int> r;
+    info(r);
+
     return 0;
 }
