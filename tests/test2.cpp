@@ -9,61 +9,32 @@
 
 using namespace std;
 
-template<typename U>
+template<typename T>
 struct stack_node
 {
-    U elem;
-    stack_node<U>* prev;
-    stack_node<U>* next;
+    stack_node* last;
+    T* item;
 };
 
 template<typename T>
-class f_stack //final
+class f_stack
 {
-    stack_node<T>* first;
-    stack_node<T>* top;
+
 public:
-    f_stack()
-        :first{nullptr}, top{nullptr}
-    {}
+    f_stack(){}
+    ~f_stack(){}
+    
 
-    ~f_stack()
-    {/*
-        auto aux = first;
-        while(aux)
-        {
-            auto prev = aux->prev;
-            delete aux;
-            aux = prev;
-        }*/
-    }
-
-    const bool is_empty() const
+    bool is_empty()
     {
-        return first == nullptr;
+        return true;
     }
 
-    void push(const T& obj)
+    void push(T item)
     {
-        auto new_node = new stack_node<T>{obj, nullptr};
-        if(first == nullptr)
-        {
-            top = first = new_node;
-            top->prev = first;
-            return;
-        }
-        cout<<top->elem<<"\n";
-        top->prev = new_node;
-        top = new_node;
+
     }
 
-    T pop()
-    {
-        T res;
-        res = top->elem;
-        top = top->prev;
-        return res;
-    }
 };
 
 bool test0()
@@ -74,7 +45,7 @@ bool test0()
     auto r2 = st.is_empty();
     return r1 && !r2;
 }
-
+/*
 bool test1()
 {
     f_stack<int> st;
@@ -100,8 +71,6 @@ bool test2()
 
     return s4 == "second" && s3 == "exam" && s2 == "was" && s1 == "easy" && s.is_empty(); 
 }
-
-
 
 bool test3()
 {
@@ -191,12 +160,12 @@ bool test9()
     });
     return x.evaluate("5 3 * 10 20 - min") == 15; 
 }
-
+*/
 using test = bool(*)();
 
 auto main() -> int
 {
-    test tests[] = { test0,
+    test tests[] = { test0/*,
                      test1,
                      test2,
                      test3,
@@ -205,7 +174,7 @@ auto main() -> int
                      test6,
                      test7,
                      test8,
-                     test9
+                     test9*/
     };
 
     size_t score = 0;
